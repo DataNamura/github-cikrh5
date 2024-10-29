@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+import Starfield from "~/components/starfield.astro";
+
+const widths = [450, 800];
+const sizes = "(min-width: 640px) 42vw, 67vw";
+---
+
+<section class="relative h-full bg-black">
+  <Starfield />
+  <div class="relative grid h-full place-items-center sm:grid-cols-2">
+    <h2
+      class="flex flex-col items-center gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
+    >
+      <div
+        class="gradient-text text-center font-extrabold tracking-tighter text-6xl md:text-8xl"
+      >
+        Reparación
+        <br /> Profesional
+        <br /> 24/7
+      </div>
+      <p class="text-center text-white text-xl">
+        Servicio técnico especializado en todas las marcas
+      </p>
+      <div class="flex gap-4 mt-6">
+        <a href="#contact" class="inline-block rounded-xl bg-primary px-6 py-3 text-white hover:bg-secondary">
+          Solicitar Servicio
+        </a>
+        <a href="tel:+1234567890" class="inline-block rounded-xl border-2 border-white px-6 py-3 text-white hover:bg-white hover:text-black">
+          Llamar Ahora
+        </a>
+      </div>
+    </h2>
+    <div
+      class="w-2/3 max-w-3xl self-start sm:w-10/12 sm:self-auto sm:justify-self-start"
+    >
+      <div class="h-full w-full rounded-xl bg-offset p-8 flex items-center justify-center">
+        <Icon name="mdi:tools" class="size-32 text-primary" />
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+
+const stats = [
+  {
+    value: "15+",
+    label: "Años de Experiencia",
+    icon: "mdi:calendar-check",
+  },
+  {
+    value: "5000+",
+    label: "Reparaciones Exitosas",
+    icon: "mdi:tools-wrench",
+  },
+  {
+    value: "98%",
+    label: "Clientes Satisfechos",
+    icon: "mdi:emoticon-happy",
+  },
+  {
+    value: "24/7",
+    label: "Servicio de Emergencia",
+    icon: "mdi:clock-alert",
+  },
+];
+---
+
+<ContentSection title="Sobre Nosotros" id="about">
+  <Fragment slot="lead">
+    Más de <span class="text-primary">15 años</span> brindando soluciones
+    <span class="text-primary">profesionales</span>
+  </Fragment>
+  
+  <div class="max-w-6xl">
+    <div class="mb-12 text-center">
+      <p class="text-lg text-offset mb-6">
+        En TecniHogar nos dedicamos a ofrecer servicios de reparación de electrodomésticos
+        de la más alta calidad. Nuestro equipo de técnicos certificados está comprometido
+        con brindar soluciones rápidas y efectivas para mantener tus electrodomésticos
+        funcionando perfectamente.
+      </p>
+      <p class="text-lg text-offset">
+        Nos enorgullece ser el servicio técnico oficial de las principales marcas del
+        mercado, lo que nos permite ofrecer reparaciones con garantía y repuestos
+        originales.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+      {
+        stats.map(({ value, label, icon }) => (
+          <div class="flex flex-col items-center gap-2 border border-default bg-offset p-6 rounded-xl">
+            <Icon name={icon} class="size-12 text-primary" />
+            <p class="text-3xl font-bold">{value}</p>
+            <p class="text-center text-sm text-offset">{label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</ContentSection>

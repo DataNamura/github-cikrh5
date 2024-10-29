@@ -1,0 +1,67 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import { Icon } from "astro-icon/components";
+
+const services = [
+  {
+    title: "Lavadoras",
+    icon: "mdi:washing-machine",
+    problems: ["No centrifuga", "No calienta agua", "Ruidos extraños", "Fugas de agua", "No desagua correctamente"],
+    description: "Reparación especializada de lavadoras de todas las marcas. Diagnóstico preciso y solución garantizada."
+  },
+  {
+    title: "Refrigeradores",
+    icon: "mdi:fridge",
+    problems: ["No enfría", "Hace ruido", "Forma hielo", "Consume mucha energía", "Gotea agua"],
+    description: "Servicio técnico de refrigeradores con técnicos expertos. Reparamos todo tipo de averías."
+  },
+  {
+    title: "Secadoras",
+    icon: "mdi:tumble-dryer",
+    problems: ["No calienta", "No gira", "Ruido excesivo", "No seca bien", "Se apaga sola"],
+    description: "Mantenimiento y reparación de secadoras. Soluciones rápidas y efectivas."
+  },
+  {
+    title: "Lavavajillas",
+    icon: "mdi:dishwasher",
+    problems: ["No desagua", "No lava bien", "Pierde agua", "No enciende", "Mal olor"],
+    description: "Reparación profesional de lavavajillas. Servicio garantizado y repuestos originales."
+  }
+];
+---
+
+<ContentSection title="Servicios" id="services">
+  <Fragment slot="lead">
+    Reparamos todo tipo de <span class="text-primary">electrodomésticos</span>
+    con la mayor <span class="text-primary">profesionalidad</span>
+  </Fragment>
+  <div class="grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2">
+    {
+      services.map(({ title, icon, problems, description }) => (
+        <div class="flex flex-col gap-4 border border-default bg-offset p-6 rounded-xl overflow-hidden">
+          <div class="relative h-48 w-full overflow-hidden rounded-lg bg-default flex items-center justify-center">
+            <Icon name={icon} class="size-24 text-primary" />
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="size-12 rounded-full border-2 border-current p-2">
+              <Icon name={icon} class="size-full" />
+            </div>
+            <h3 class="text-2xl font-bold">{title}</h3>
+          </div>
+          <p class="text-offset">{description}</p>
+          <div class="mt-4">
+            <h4 class="font-bold mb-2">Problemas comunes:</h4>
+            <ul class="grid grid-cols-2 gap-2 text-sm">
+              {problems.map((problem) => (
+                <li class="flex items-center gap-2">
+                  <Icon name="mdi:check-circle" class="size-5 text-primary" />
+                  <span>{problem}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</ContentSection>
